@@ -1,90 +1,100 @@
-# 🧠 Mood Detection App
+# Mood Detection from Text
 
-A web-based application that detects emotions from user input text or speech using a Natural Language Processing (NLP) model. Built using **Streamlit** for the frontend and **Hugging Face Transformers** for mood detection.  
+A simple web application that detects the mood from a given text input using Natural Language Processing (NLP). This project is built using **Streamlit** for the frontend and **SpaCy** for NLP processing. It also supports speech-to-text input for a more interactive experience.
 
----
+## 🌟 Features
 
-## 🚀 Features
+- Detects mood from user input text using SpaCy
+- Supports speech recognition for hands-free input
+- Interactive and user-friendly interface using Streamlit
+- Lightweight and easy to deploy using Docker
 
-- Detects multiple emotions from text using **SamLowe/roberta-base-go_emotions**.  
-- Supports both **text input** and **speech recognition**.  
-- Displays detected emotions with **confidence scores** and relevant **emojis**.  
+## 🚀 Live Demo
 
----
+You can access the deployed application here:  
+[**Mood Detection App on Render**](https://mood-detection-text.onrender.com)
 
-## 🛠️ Tech Stack
+## 🛠️ Technologies Used
 
-- **Python**  
-- **Streamlit**  
-- **Hugging Face Transformers**  
-- **SpeechRecognition** (for voice input)  
-- **SpaCy** (for sentence tokenization)  
+- **Python 3.12**  
+- **Streamlit** for UI  
+- **SpaCy** for Natural Language Processing  
+- **SpeechRecognition** for speech input  
+- **Docker** for containerization  
 
----
+## 🧑‍💻 Installation Guide
 
-## 📦 Installation
+Follow these steps to set up the project locally:
 
-1. **Clone the Repository:**  
+1. **Clone the Repository**  
     ```bash
     git clone https://github.com/HARSHITA005-GARG/Mood-Detection-Text.git
     cd Mood-Detection-Text
     ```
 
-2. **Create and Activate Virtual Environment:**  
+2. **Create a Virtual Environment**  
     ```bash
-    python -m venv venv
-    source venv/bin/activate    # On Linux/macOS
-    venv\Scripts\activate       # On Windows
+    python -m venv myenv
+    source myenv/bin/activate  # On Windows: myenv\Scripts\activate
     ```
 
-3. **Install Dependencies:**  
+3. **Install Dependencies**  
     ```bash
     pip install -r requirements.txt
     ```
 
-4. **Download SpaCy Model:**  
+4. **Download SpaCy Model**  
     ```bash
     python -m spacy download en_core_web_sm
     ```
 
----
-
-## 🧑‍💻 Usage
-
-1. Run the Streamlit app:  
+5. **Run the Application**  
     ```bash
     streamlit run app.py
     ```
 
-2. Open the link displayed in the terminal (e.g., `http://localhost:8501`).  
-
-3. Choose between **Text Input** or **Speech Input**.  
-
-4. View your mood predictions with emojis and confidence scores.  
+6. **Access the App**  
+    - Open [http://localhost:8501](http://localhost:8501) in your browser.
 
 ---
 
-## ⚡ Example Test Sentences
+## 🐳 Deploy Using Docker
 
-Try these sample sentences to test the model:  
+To build and run the app using Docker, follow these steps:
 
-1. _"I am so excited for my birthday party tomorrow!"_ 🎉  
-2. _"I can't believe she forgot my birthday, it makes me so sad."_ 😔  
-3. _"The roller coaster was thrilling and scary at the same time."_ 🎢😱  
-4. _"I admire your determination and courage."_ 💪👏  
-5. _"I love spending time with my family."_ ❤️  
+1. **Build the Docker Image**  
+    ```bash
+    docker build -t mood-detection-app .
+    ```
+
+2. **Run the Container**  
+    ```bash
+    docker run -p 8501:8501 mood-detection-app
+    ```
+
+3. **Access the App**  
+    - Open [http://localhost:8501](http://localhost:8501) in your browser.
 
 ---
 
-## 🐛 Troubleshooting
+## 🛡️ License
 
-- **Speech not recognized?**  
-  Ensure your microphone is enabled and permissions are granted.  
+This project is licensed under the **MIT License**.  
+See the [LICENSE](LICENSE) file for more information.
 
-- **Incorrect mood predictions?**  
-  The model may have limitations on nuanced emotions or complex sentences.  
+---
 
-- **Errors in SpaCy?**  
-  Ensure `en_core_web_sm` is downloaded:  
-  ```bash
-  python -m spacy download en_core_web_sm
+## 🤝 Contributing
+
+Contributions are welcome!  
+Feel free to open an issue or submit a pull request on the [GitHub Repository](https://github.com/HARSHITA005-GARG/Mood-Detection-Text).  
+
+---
+
+## 📧 Contact
+
+- **GitHub**: [HARSHITA005-GARG](https://github.com/HARSHITA005-GARG)   
+
+---
+
+**Enjoy using the Mood Detection App! 😊**  

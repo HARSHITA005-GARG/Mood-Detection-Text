@@ -2,10 +2,20 @@ import streamlit as st
 import speech_recognition as sr
 from transformers import pipeline
 import spacy
+import subprocess
 
-# Load SpaCy for sentence tokenization
-nlp = spacy.load("en_core_web_sm")
-print("MOdel Loaded Successfully")
+def load_spacy_model():
+    try:
+        nlp = spacy.load("en_core_web_sm")
+        print("SpaCy model loaded successfully.")
+    except OSError:
+        print("SpaCy model not found. Downloading 'en_core_web_sm'...")
+        subprocess.run(["python", "-m", "spacy", "download", "en_core_web_sm"])
+        nlp = spacy.load("en_core_web_sm")
+        print("Download complete. Model loaded.")
+    return nlp
+
+nlp = load_spacy_model()
 
 # Load your emotion classifier
 classifier = pipeline("text-classification", 

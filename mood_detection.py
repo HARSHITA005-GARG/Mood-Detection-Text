@@ -5,6 +5,7 @@ import spacy
 
 # Load SpaCy for sentence tokenization
 nlp = spacy.load("en_core_web_sm")
+print("MOdel Loaded Successfully")
 
 # Load your emotion classifier
 classifier = pipeline("text-classification", 

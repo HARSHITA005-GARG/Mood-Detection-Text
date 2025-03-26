@@ -1,5 +1,5 @@
 streamlit
 transformers
-SpeechRecognition
+speech_recognition
 spacy
 torch

@@ -4,9 +4,9 @@ FROM python:3.12-slim
 # Set the working directory inside the container
 WORKDIR /app
 
-# Install system dependencies (for PyAudio and PortAudio)
+# Install system dependencies for PyAudio, PortAudio, and GCC
 RUN apt-get update && \
-    apt-get install -y portaudio19-dev && \
+    apt-get install -y portaudio19-dev libasound2-dev gcc python3-dev && \
     rm -rf /var/lib/apt/lists/*
 
 # Copy the requirements file to the container

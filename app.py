@@ -1,8 +1,18 @@
 import streamlit as st
 from mood_detection import predict_mood, recognize_speech
+import os
+from flask import Flask
 
+app = Flask(__name__)
+
+# Health Check Route
+@app.route('/health')
 def health_check():
-    st.write("✅ Health Check Passed. App is running!")
+    return "OK", 200
+
+# Run Streamlit
+def run_streamlit():
+    os.system("streamlit run app.py --server.port=8000 --server.address=0.0.0.0")
 
 def main():
     st.title("Mood Detection App with Speech-to-Text 🎙️😊")
@@ -40,9 +50,7 @@ def main():
         st.warning("Please enter text or speak to analyze your mood.")
 
 if __name__ == "__main__":
-    # Check for health check environment variable
-    import os
-    if os.environ.get("RAILWAY_HEALTHCHECK_PATH") == "/health":
-        health_check()
-    else:
-        main()
+    from threading import Thread
+    t = Thread(target=run_streamlit)
+    t.start()
+    app.run(host="0.0.0.0", port=8000)
